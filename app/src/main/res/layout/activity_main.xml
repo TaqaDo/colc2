@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/resultTv"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="10dp"
+        android:textSize="32sp"
+        android:gravity="bottom"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:text=""
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/resultTv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <Button
+            android:id="@+id/clear"
+            android:onClick="numberClick"
+            android:layout_width="309dp"
+            android:layout_height="95sp"
+
+            android:textSize="32sp"
+            android:text="CLEAR"/>
+            <Button
+                android:id="@+id/divide"
+              style="@style/calc_button"
+                android:onClick="operandClick"
+                android:text="/" />
+    </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/seven"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="7"/>
+            <Button
+                android:id="@+id/eight"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="8"/>
+
+            <Button
+                android:id="@+id/nine"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/um"
+                style="@style/calc_button"
+                android:onClick="operandClick"
+                android:text="X"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/four"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="4"/>
+            <Button
+                android:id="@+id/five"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="5"/>
+            <Button
+                android:id="@+id/six"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="6"/>
+
+            <Button
+                android:id="@+id/minus"
+                style="@style/calc_button"
+                android:onClick="operandClick"
+                android:text="-"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/one"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="1"/>
+            <Button
+                android:id="@+id/two"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="2"/>
+            <Button
+                android:id="@+id/three"
+                style="@style/calc_button"
+                android:onClick="numberClick"
+                android:text="3"/>
+
+            <Button
+                android:id="@+id/plus"
+                style="@style/calc_button"
+                android:onClick="operandClick"
+                android:text="+"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/zero"
+                style="@style/calc_button"
+                android:layout_weight="8"
+                android:onClick="numberClick"
+                android:text="0"/>
+
+            <Button
+                android:id="@+id/point"
+                style="@style/calc_button"
+                android:onClick="operandClick"
+                android:text=","/>
+
+            <Button
+                android:id="@+id/equals"
+                style="@style/calc_button"
+                android:onClick="operandClick"
+                android:text="="/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
