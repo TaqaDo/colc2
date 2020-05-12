@@ -13,21 +13,26 @@ public class MainActivity extends AppCompatActivity {
     Double firstValues, secondValues, result;
     Button point;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         resultTv = findViewById(R.id.resultTv);
-        point =findViewById(R.id.point);
+        point = findViewById(R.id.point);
+
+
 
         point.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (resultTv.length() != 0)
-                resultTv.append(".");
+                    resultTv.append(".");
             }
         });
     }
+
+
 
     public void numberClick(View view) {
         switch (view.getId()) {
@@ -63,12 +68,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.zero:
                 if (resultTv.length() != 0)
-                resultTv.append("0");
+                    resultTv.append("0");
                 break;
 
 
         }
     }
+
 
     public void operandClick(View view) {
         switch (view.getId()) {
@@ -117,27 +123,59 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void plusOperation() {
-        result=firstValues+secondValues;
-        resultTv.setText(firstValues+"+"+secondValues+"="+result.toString());
+        result = firstValues + secondValues;
+        resultTv.setText(firstValues.toString() + "+" + secondValues.toString() + "=" + result.toString());
 
     }
 
     public void minusOperation() {
-        result=firstValues-secondValues;
-        resultTv.setText(firstValues+"-"+secondValues+"="+result.toString());
+        result = firstValues - secondValues;
+        resultTv.setText(firstValues.toString() + "-" + secondValues.toString() + "=" + result.toString());
 
     }
 
     public void divisionOperation() {
-        result=firstValues/secondValues;
-        resultTv.setText(firstValues+"/"+secondValues+"="+result.toString());
+        result = firstValues / secondValues;
+        resultTv.setText(firstValues.toString() + "/" + secondValues.toString() + "=" + result.toString());
 
     }
 
 
     public void umOperation() {
-        result=firstValues*secondValues;
-        resultTv.setText(firstValues+"*"+secondValues+"="+result.toString());
+        result = firstValues * secondValues;
+        resultTv.setText(firstValues.toString() + "*" + secondValues.toString() + "=" + result.toString());
 
     }
+
+    private void readSavedInstanceState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            firstValues = savedInstanceState.getDouble("first");
+            resultTv.append(firstValues.toString());
+            operation = savedInstanceState.getString("text_view");
+            resultTv.append(operation);
+            secondValues = savedInstanceState.getDouble("second");
+            resultTv.append(secondValues.toString());
+            operation = savedInstanceState.getString("text_view");
+            resultTv.append(operation);
+            result = savedInstanceState.getDouble("result");
+            resultTv.append(result.toString());
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState( Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        readSavedInstanceState(savedInstanceState);
+    }
+
+    @Override
+        protected void onSaveInstanceState (Bundle outState){
+            super.onSaveInstanceState(outState);
+        outState.putDouble("first", firstValues );
+        outState.putString("text_view", operation);
+        outState.putDouble("second", secondValues );
+        outState.putDouble("result", result );
+
+        }
+
 }
